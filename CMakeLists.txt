@@ -48,7 +48,6 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE)
 # project subdirectories  ------------------------------------------------------
 # ==============================================================================
 
-ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(lib)
 ADD_SUBDIRECTORY(bin)
 ADD_SUBDIRECTORY(man)
