@@ -29,15 +29,15 @@ BEGIN{
     }
 }
 
-/Energy= /{
+/^ Energy= /{
     energy = $2;
 }
 
-/SCF Done:/{
+/^ SCF Done:/{
     energy = $5;
 }
 
-/ONIOM: extrapolated energy =/{
+/^ ONIOM: extrapolated energy =/{
     energy = $5;
 }
 

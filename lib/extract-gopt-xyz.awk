@@ -28,7 +28,7 @@ BEGIN{
     }
 }
 
-/Energy= /{
+/^ Energy= /{
     if( stop == 1 ) exit;
     energy = $2;
     printf("%d\n",num_of_atoms);
@@ -38,7 +38,7 @@ BEGIN{
     }
 }
 
-/SCF Done:/{
+/^ SCF Done:/{
     if( stop == 1 ) exit;
     energy = $5;
     printf("%d\n",num_of_atoms);

@@ -8,7 +8,7 @@ BEGIN{
  printf("# Step      Energy [kcal/mol]  Energy [au]       \n");
  printf("# --------- ------------------ ------------------\n");
 }
-/Energy= /{
+/^ Energy= /{
  if( stop == 1 ) exit;
  energy = $2;
  if( first == 0 ){
@@ -18,7 +18,7 @@ BEGIN{
  printf("  %9d %18.3f %18.9f\n",step,(energy - firstenergy)*627.510,energy);
  step++; 
 }
-/SCF Done:/{
+/^ SCF Done:/{
  if( stop == 1 ) exit;
  energy = $5;
  if( first == 0 ){
