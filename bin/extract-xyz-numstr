@@ -1,0 +1,48 @@
+#!/bin/bash
+# =============================================================================
+# extract_xyz_numstr - determine number of xyz structures in file
+# (c) 2008      Petr Kulhanek, kulhanek@enzim.hu
+# (c) 2005,2006 Petr Kulhanek, kulhanek@chemi.muni.cz
+#
+# Usage: extract_xyz_numstr <xyzfile>
+#
+# =============================================================================
+
+# determine full path to the script --------------
+RELPATH=`dirname $0`
+if [ -z "$RELPATH" ]; then
+    FULPATH=`type $0`
+else
+    FULPATH=`cd $PWD; cd $RELPATH; pwd`
+fi
+
+# determine QMUTIL_DIR ---------------------------
+QMUTIL_DIR=`dirname $FULPATH`
+
+if [ "$QMUTIL_DIR" == "" ]; then
+    echo "" 1>&2
+    echo " ERROR: QMUTIL_DIR is not set!" 1>&2
+    echo "" 1>&2
+    exit 1
+fi
+
+# check number of parameters ---------------------
+if [ $# -ne 1 ]; then
+    echo "" 1>&2
+    echo " ERROR: One parameter is required !" 1>&2
+    echo "        extraxt-xyz-numofstr <xyzfile>" 1>&2
+    echo "" 1>&2
+    exit 1
+fi
+
+if ! [ -f "$1" ]; then
+    echo "" 1>&2
+    echo " ERROR: Specified file '$1' does not exist!" 1>&2
+    echo "" 1>&2
+    exit 1
+fi
+
+# execute awk script -----------------------------
+gawk -f $QMUTIL_DIR/lib/extract-xyz-numofstr.awk < $1
+exit $?
+

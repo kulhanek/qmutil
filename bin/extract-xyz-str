@@ -1,0 +1,76 @@
+#!/bin/bash
+# =============================================================================
+# extract_xyz_str - extract xyz coordinates of structure from multiple xyz file
+# (c) 2008      Petr Kulhanek, kulhanek@enzim.hu
+# (c) 2005,2006 Petr Kulhanek, kulhanek@chemi.muni.cz
+#
+# Usage: extract_xyz_str <xyzfile> <indexofstr>
+#
+# NOTE: Structures are indexed from 1
+#
+# =============================================================================
+
+# determine full path to the script --------------
+RELPATH=`dirname $0`
+if [ -z "$RELPATH" ]; then
+    FULPATH=`type $0`
+else
+    FULPATH=`cd $PWD; cd $RELPATH; pwd`
+fi
+
+# determine QMUTIL_DIR ---------------------------
+QMUTIL_DIR=`dirname $FULPATH`
+
+if [ "$QMUTIL_DIR" == "" ]; then
+    echo "" 1>&2
+    echo " ERROR: QMUTIL_DIR is not set!" 1>&2
+    echo "" 1>&2
+    exit 1
+fi
+
+# check number of parameters ---------------------
+if [ $# -ne 2 ]; then
+    echo "" 1>&2
+    echo " ERROR: Two parameters are required!" 1>&2
+    echo "        extraxt-xyz-str <xyzfile> <numberofstr>" 1>&2
+    echo "" 1>&2
+    exit 1
+fi
+
+if ! [ -f "$1" ]; then
+    echo "" 1>&2
+    echo " ERROR: Specified file '$1' does not exist!" 1>&2
+    echo "" 1>&2
+    exit 1
+fi
+
+if ! expr "$2" + 1 &> /dev/null; then
+    if [ "$2" != "first" ] && [ "$2" != "last" ]; then 
+        echo "" 1>&2
+        echo " ERROR: Index of structure '$2' is not a number or keyword: 'first' or 'last'!" 1>&2
+        echo "" 1>&2
+        exit 1
+    fi
+fi
+
+if [ "$2" == "first" ]; then
+    awk -v my_index=1 -f $QMUTIL_DIR/lib/extract-xyz-str.awk < $1
+    exit $?
+fi
+
+if [ "$2" == "last" ]; then
+    NUMOFSTR=`awk -f $QMUTIL_DIR/lib/extract-xyz-numofstr.awk < $1`
+    if [ "$NUMOFSTR" == "" ]; then
+        echo "" 1>&2
+        echo " ERROR: Unable to determine number of xyz structures!" 1>&2
+        echo "" 1>&2
+        exit 1
+    fi
+    awk -v my_index=$NUMOFSTR -f $QMUTIL_DIR/lib/extract-xyz-str.awk < $1
+    exit $?
+fi
+
+# execute awk script -----------------------------
+gawk -v my_index=$2 -f $QMUTIL_DIR/lib/extract-xyz-str.awk < $1
+exit $?
+

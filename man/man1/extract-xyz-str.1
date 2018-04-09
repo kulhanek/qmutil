@@ -1,0 +1,34 @@
+.TH extract-xyz-str 1 "2008" "QMUtil" "QMUtil - miscellaneous utilities for QM programs"
+
+.\"-----------------------------------------------------------------------------
+.SH NAME
+extract-xyz-str
+
+.\"-----------------------------------------------------------------------------
+.SH SYNOPSIS
+extract-gopt-xyz <file.xyz> <snapshot_id>
+
+.\"-----------------------------------------------------------------------------
+.SH DESCRIPTION
+Extracts the snapshot of number snapshot_id from multiple-xyz file. The resulting structure is printed to the standard output in the xyz format.
+
+.\"-----------------------------------------------------------------------------
+.SH ARGUMENTS
+.B file.xyz
+.RS
+multiple-xyz file
+.RE
+
+.SH ARGUMENTS
+.B snapshot_id
+.RS
+snapshot number (counted from 1) or 'last' keyword for the last snapshot
+.RE
+
+.\"-----------------------------------------------------------------------------
+.SH SEE ALSO
+qmutil(1), extract-gdrv-xyz(1), extract-gopt-xyz(1), extract-xyz-numstr(1)
+
+.\"-----------------------------------------------------------------------------
+.SH COPYRIGHT
+Copyright (c) 2008 Petr Kulhanek, kulhanek@chemi.muni.cz
