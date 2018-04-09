@@ -9,7 +9,6 @@ INSTALL(FILES
             extract-gopt-xyz
             extract-xyz-numstr
             extract-xyz-str
-            xyzmultifit
         DESTINATION
             bin
         PERMISSIONS
