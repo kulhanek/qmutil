@@ -43,6 +43,7 @@ if ! [ -f "$1" ]; then
 fi
 
 # execute awk script -----------------------------
+export AWKPATH=$QMUTIL_DIR/lib
 gawk -f $QMUTIL_DIR/lib/extract-xyz-numofstr.awk < "$1"
 exit $?
 
