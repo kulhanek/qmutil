@@ -1,10 +1,10 @@
 #!/bin/bash
 # =============================================================================
-# extract_xyz_numstr - determine number of xyz structures in file
+# extraxt-xyz-numofstr - determine number of xyz structures in file
 # (c) 2008      Petr Kulhanek, kulhanek@enzim.hu
 # (c) 2005,2006 Petr Kulhanek, kulhanek@chemi.muni.cz
 #
-# Usage: extract_xyz_numstr <xyzfile>
+# Usage: extraxt-xyz-numofstr <xyzfile>
 #
 # =============================================================================
 
@@ -43,6 +43,6 @@ if ! [ -f "$1" ]; then
 fi
 
 # execute awk script -----------------------------
-gawk -f $QMUTIL_DIR/lib/extract-xyz-numofstr.awk < $1
+gawk -f $QMUTIL_DIR/lib/extract-xyz-numofstr.awk < "$1"
 exit $?
 

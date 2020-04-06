@@ -1,10 +1,10 @@
 #!/bin/bash
 # =============================================================================
-# extract_gdrv_ene - extract energies from gaussian driving calculations
+# extraxt-gdrv-ene - extract energies from gaussian driving calculations
 # (c) 2008      Petr Kulhanek, kulhanek@enzim.hu
 # (c) 2005,2006 Petr Kulhanek, kulhanek@chemi.muni.cz
 #
-# Usage: extract_gdrv_ene <logfile>
+# Usage: extraxt-gdrv-ene <logfile>
 #
 # =============================================================================
 
@@ -43,5 +43,5 @@ if ! [ -f "$1" ]; then
 fi
 
 # execute awk script -----------------------------
-gawk -f $QMUTIL_DIR/lib/extract-gdrv-ene.awk < $1
+gawk -f $QMUTIL_DIR/lib/extract-gdrv-ene.awk < "$1"
 

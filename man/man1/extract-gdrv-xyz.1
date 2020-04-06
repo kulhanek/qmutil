@@ -6,22 +6,22 @@ extract-gdrv-xyz
 
 .\"-----------------------------------------------------------------------------
 .SH SYNOPSIS
-extract-gdrv-xyz <gaussian.log>
+extract-gdrv-xyz FILE
 
 .\"-----------------------------------------------------------------------------
 .SH DESCRIPTION
-Prints system coordinates along a prescribed reaction coordinate from the potential energy scanning calculation performed by Gaussian. Results are printed in the multiple-xyz format to the standard output.
+Prints system coordinates along a prescribed reaction coordinate from the potential energy scanning calculation performed by Gaussian. Results are printed to the standard output in the multiple-xyz format.
 
 .\"-----------------------------------------------------------------------------
 .SH ARGUMENTS
-.B gaussian.log
+.B FILE
 .RS
-Gaussian output file
+Gaussian log file
 .RE
 
 .\"-----------------------------------------------------------------------------
 .SH SEE ALSO
-qmutil(1), extract-gdrv-ene(1), extract-xyz-numstr(1), extract-xyz_str(1)
+qmutil(1), extract-gdrv-ene(1), extract-gdrv-pts(1), extract-xyz-numstr(1), extract-xyz_str(1)
 
 .\"-----------------------------------------------------------------------------
 .SH COPYRIGHT

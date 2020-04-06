@@ -6,23 +6,23 @@ extract-xyz-str
 
 .\"-----------------------------------------------------------------------------
 .SH SYNOPSIS
-extract-gopt-xyz <file.xyz> <snapshot_id>
+extract-gopt-xyz FILE ID
 
 .\"-----------------------------------------------------------------------------
 .SH DESCRIPTION
-Extracts the snapshot of number snapshot_id from multiple-xyz file. The resulting structure is printed to the standard output in the xyz format.
+Extracts the snapshot of number ID from multiple-xyz FILE. The resulting structure is printed to the standard output in the xyz format.
 
 .\"-----------------------------------------------------------------------------
 .SH ARGUMENTS
-.B file.xyz
+.B FILE
 .RS
 multiple-xyz file
 .RE
 
 .SH ARGUMENTS
-.B snapshot_id
+.B ID
 .RS
-snapshot number (counted from 1) or 'last' keyword for the last snapshot
+snapshot number (counted from 1), or 'last' keyword for the last snapshot, or 'first' keyword for the first snapshot
 .RE
 
 .\"-----------------------------------------------------------------------------

@@ -1,3 +1,5 @@
+@include "conv.awk"
+
 BEGIN{
  energy = 0;
  step = 1;
@@ -15,7 +17,7 @@ BEGIN{
     first = 1;
     firstenergy = energy;
     }
- printf("  %9d %18.3f %18.9f\n",step,(energy - firstenergy)*627.510,energy);
+ printf("  %9d %18.3f %18.9f\n",step,au2kcalmol(energy - firstenergy),energy);
  step++; 
 }
 /^ SCF Done:/{
@@ -25,7 +27,7 @@ BEGIN{
     first = 1;
     firstenergy = energy;
     }
- printf("  %9d %18.3f %18.9f\n",step,(energy - firstenergy)*627.510,energy);
+ printf("  %9d %18.3f %18.9f\n",step,au2kcalmol(energy - firstenergy),energy);
  step++;
 }
 /Normal termination of Gaussian/{

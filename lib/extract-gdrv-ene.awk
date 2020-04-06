@@ -1,3 +1,5 @@
+@include "conv.awk"
+
 BEGIN{
  start_read_mod = 0;
  mod_read = 0;
@@ -27,7 +29,7 @@ BEGIN{
     steepness = "-";
     if( last_energy > energy ) steepness = "\\";
     if( last_energy < energy ) steepness = "/";
-    printf("  %4d %9.4f %18.3f %1s %18.9f\n",step,$4,(energy - firstenergy)*627.510,steepness,energy);
+    printf("  %4d %9.4f %18.3f %1s %18.9f\n",step,$4,au2kcalmol(energy - firstenergy),steepness,energy);
     last_energy = energy;
     step++;
     }

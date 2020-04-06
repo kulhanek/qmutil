@@ -5,10 +5,12 @@
 INSTALL(FILES
             extract-gdrv-ene
             extract-gdrv-xyz
+            extract-gdrv-pts
             extract-gopt-ene
             extract-gopt-xyz
             extract-xyz-numstr
             extract-xyz-str
+            extract-fchk-pts
         DESTINATION
             bin
         PERMISSIONS
