@@ -44,5 +44,5 @@ fi
 
 # execute awk script -----------------------------
 export AWKPATH=$QMUTIL_DIR/lib
-igawk -f $QMUTIL_DIR/lib/extract-gdrv-xyz.awk < "$1"
+gawk -f $QMUTIL_DIR/lib/extract-gdrv-xyz.awk < "$1"
 

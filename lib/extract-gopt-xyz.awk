@@ -1,4 +1,4 @@
-@include periodic-table.awk
+@include "periodic-table.awk"
 
 BEGIN{
     num_of_atoms = 0;
