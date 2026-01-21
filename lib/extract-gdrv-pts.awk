@@ -130,6 +130,19 @@ function read_cvs()
 		}
 		num_of_cvs++;
 	}
+    if($5 == "frozen,") {
+        cvs[num_of_cvs,0] = num_of_cvs + 1; #index
+        cvs[num_of_cvs,1] = $2; #name
+        cvs[num_of_cvs,2] = substr($3,1,1); #type
+        cvs[num_of_cvs,3] = 0; #value, will be read later from another section
+        atoms_string = substr($3,3,length($3)-3); #definition
+        atoms_count = split(atoms_string,atoms_array,",");
+        cvs[num_of_cvs,4] = atoms_count;
+        for(i=1; i<=atoms_count; i++){
+            cvs[num_of_cvs,4+i] = atoms_array[i];
+        }
+        num_of_cvs++;
+    }
 }
 
 function read_cvs_values()
