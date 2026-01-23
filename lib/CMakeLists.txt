@@ -12,6 +12,8 @@ INSTALL(FILES
             extract-xyz-str.awk
             extract-fchk-pts.awk
             periodic-table.awk
+            convert-ene-2d-gnuplot.awk
+            extract-gdrv-ene-2d.awk
             conv.awk
         DESTINATION
             lib

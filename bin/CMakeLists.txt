@@ -11,6 +11,9 @@ INSTALL(FILES
             extract-xyz-numstr
             extract-xyz-str
             extract-fchk-pts
+            convert-ene-2d-gnuplot
+            extraxt-gdrv-ene-2d
+            extraxt-gdrv-xyz-2d
         DESTINATION
             bin
         PERMISSIONS
