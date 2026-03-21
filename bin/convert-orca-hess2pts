@@ -1,9 +1,9 @@
 #!/bin/bash
 # =============================================================================
-# convert-orca-xyz2pts - convert the xyz file from an orca job to the pts format
+# convert-orca-hess2pts - convert the hess file from an orca job to the pts format
 # (c) 2026 Petr Kulhanek, kulhanek@chemi.muni.cz
 #
-# Usage: convert-orca-xyz2pts <xyzfile>
+# Usage: convert-orca-hess2pts <hessfile>
 #
 # =============================================================================
 
@@ -29,7 +29,7 @@ fi
 if [ $# -ne 1 ]; then
     echo "" 1>&2
     echo " ERROR: One parameter is required!" 1>&2
-    echo "        convert-orca-xyz2pts <xyzfile>" 1>&2
+    echo "        convert-orca-hess2pts <hessfile>" 1>&2
     echo "" 1>&2
     exit 1
 fi
@@ -43,5 +43,5 @@ fi
 
 # execute awk script -----------------------------
 export AWKPATH=$QMUTIL_DIR/lib
-gawk -f $QMUTIL_DIR/lib/convert-orca-xyz2pts.awk < "$1"
+gawk -f $QMUTIL_DIR/lib/convert-orca-hess2pts.awk < "$1"
 

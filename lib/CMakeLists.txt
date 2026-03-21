@@ -16,7 +16,7 @@ INSTALL(FILES
             periodic-table.awk
             convert-ene-2d-gnuplot.awk
             convert-orca-xyz2pts.awk
-            convert-orca-xyz2pts.awk
+            convert-orca-hess2pts.awk
             extract-gdrv-ene-2d.awk
             extract-xyz-glbmin.awk
             conv.awk

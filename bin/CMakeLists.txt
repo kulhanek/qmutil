@@ -16,6 +16,7 @@ INSTALL(FILES
             extract-fchk-pts
             convert-ene-2d-gnuplot
             convert-orca-xyz2pts
+            convert-orca-hess2pts
             extract-gdrv-ene-2d
             extract-gdrv-xyz-2d
         DESTINATION
